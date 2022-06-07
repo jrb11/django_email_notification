@@ -11,7 +11,7 @@ from django.core.mail import send_mail
 
 def signup(request):
     if request.method == "POST":
-        #print("1")
+        #print("0")
         #retrive username and password from signin.html file
         username = request.POST.get('username')
         fname = request.POST.get('fname')
@@ -23,6 +23,7 @@ def signup(request):
         myuser = User.objects.create_user(username, email, pass1)
         myuser.first_name = fname
         myuser.last_name = lname
+        #print("1")
 
         #Wait for user is activate account or not
         myuser.is_active = False
